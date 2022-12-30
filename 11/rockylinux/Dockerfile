@@ -56,7 +56,6 @@ RUN microdnf install \
     git \
     git-lfs \
     less \
-    openssh-client \
     patch \
     tzdata \
     && rm -rf /tmp/* /var/cache/* /usr/share/doc/* /usr/share/man/*
