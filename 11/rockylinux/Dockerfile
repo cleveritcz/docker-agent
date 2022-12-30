@@ -49,7 +49,7 @@ ENV TZ=Etc/UTC
 
 ## Always use the latest Debian packages: no need for versions
 # hadolint ignore=DL3008
-RUN microdnf install \
+RUN microdnf -y install \
     ca-certificates \
     curl \
     fontconfig \
