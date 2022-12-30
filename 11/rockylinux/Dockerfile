@@ -56,7 +56,6 @@ RUN microdnf install \
     git \
     git-lfs \
     less \
-    netbase \
     openssh-client \
     patch \
     tzdata \
