@@ -64,6 +64,7 @@ ARG VERSION=3085.vc4c6977c075a
 ADD --chown="${user}":"${group}" "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${VERSION}/remoting-${VERSION}.jar" /usr/share/jenkins/agent.jar
 RUN chmod 0644 /usr/share/jenkins/agent.jar \
   && ln -sf /usr/share/jenkins/agent.jar /usr/share/jenkins/slave.jar
+RUN mkdir -p /home/${user}/.jenkins && mkdir -p "${AGENT_WORKDIR}"&& chown -R ${user}:${group} /home/${user}
 
 ENV LANG C.UTF-8
 
@@ -73,7 +74,7 @@ COPY --from=jre-build /javaruntime "$JAVA_HOME"
 
 USER "${user}"
 ENV AGENT_WORKDIR="${AGENT_WORKDIR}"
-RUN mkdir -p /home/${user}/.jenkins && mkdir -p "${AGENT_WORKDIR}"
+
 
 VOLUME /home/"${user}"/.jenkins
 VOLUME "${AGENT_WORKDIR}"
