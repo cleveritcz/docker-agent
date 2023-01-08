@@ -34,7 +34,7 @@ RUN jlink \
   --compress=2 \
   --output /javaruntime
 
-FROM rockylinux/rockylinux:9.1-minimal
+FROM rockylinux:9-minimal
 
 ARG user=jenkins
 ARG group=jenkins
